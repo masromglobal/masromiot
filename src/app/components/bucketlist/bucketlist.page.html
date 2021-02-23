@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-button (click)="arrow()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+
+        </ion-buttons>
+        <ion-buttons slot="primary" routerLink='/adddata'>
+          <ion-button color="tertiary" fill="outline">
+            New
+            <ion-icon slot="end" name="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-toolbar>
+          <ion-searchbar #search debounce="1000" (ionChange)= "_ionChange($event)"></ion-searchbar>
+        </ion-toolbar>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" disabled="false" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+
+    pullingIcon="arrow-down-outline"
+    pullingText="Pull to refresh"
+    refreshingSpinner="crescent"
+    refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid class="ion-text-center">
+
+    <ion-row class="ion-margin">
+      <ion-col>
+        <ion-title>
+          <ion-text color="default">
+        Bucket List
+          </ion-text>
+        </ion-title>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="header-row">
+
+      <ion-col>
+        <ion-text> CompanyName </ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>eq_id</ion-text>
+      </ion-col>
+
+      <ion-col>
+        <ion-text>Activate/DeActivate</ion-text>
+      </ion-col>
+
+
+    </ion-row>
+
+
+    <ion-row class="text">
+      <ion-col>
+        <ion-item *ngFor="let companydata of Location">
+          <ion-text >
+          {{companydata.CompanyName}}
+          </ion-text>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item *ngFor="let companydata of Location">
+          <ion-text >
+          {{companydata.eq_id}}
+          </ion-text>
+        </ion-item>
+      </ion-col>
+
+        <ion-col>
+          <ion-item *ngFor="let companydata of Location">
+            <div *ngIf="pepperoni">
+            <ion-toggle *ngIf="pepperoni" color="success" (ionChange)="toggle()" ></ion-toggle>
+          </div>
+        </ion-item>
+
+        </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>adminlogin</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-list inset>
+    <ion-item>
+    <ion-input type="text" value="" [(ngModel)]="logindata.username" placeholder="Username"></ion-input>
+  </ion-item>
+  </ion-list>
+  <ion-list inset>
+    <ion-item>
+    <ion-input type="password" value="" [(ngModel)]="logindata.password" placeholder="Password"></ion-input>
+  </ion-item>
+  </ion-list>
+  <ion-button expand="block" shape="round" (click)="login()">Login</ion-button>
+</ion-content>
+
+
+
+
+
+
